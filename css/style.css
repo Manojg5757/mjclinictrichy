@@ -1,0 +1,908 @@
+/* ==========================================================================
+   CSS Variables & Theme
+   ========================================================================== */
+:root {
+    --white:        #FAFAF8;
+    --bg-light:     #F4F1EC;
+    --navy:         #1A2B4A;
+    --navy-light:   #2D4270;
+    --gold:         #C8963E;
+    --gold-light:   #E8B96A;
+    --text-dark:    #1C1C1E;
+    --text-body:    #4A4A52;
+    --text-muted:   #8A8A96;
+    --success:      #2D7A4F;
+    --border:       rgba(26,43,74,0.12);
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-subheading: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-tamil: 'Noto Sans Tamil', sans-serif;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-body);
+    background-color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-family: var(--font-subheading);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.tamil-text {
+    font-family: var(--font-tamil);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section-padding {
+    padding: 5rem 0;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-2 { margin-top: 1rem; }
+.mt-4 { margin-top: 2rem; }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--navy-light);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border-color: var(--navy);
+    color: var(--navy);
+}
+
+.btn-outline:hover {
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+.btn-gold {
+    background-color: var(--gold);
+    color: var(--navy);
+    border-color: var(--gold);
+}
+
+.btn-gold:hover {
+    background-color: var(--gold-light);
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+}
+
+/* ==========================================================================
+   Typography Utilities
+   ========================================================================== */
+.section-label {
+    display: inline-block;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--navy);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.logo-highlight {
+    color: var(--gold);
+}
+
+.logo-tagline {
+    font-family: var(--font-tamil);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--navy);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--navy);
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero {
+    padding: 4rem 1.5rem;
+    background: linear-gradient(135deg, var(--white) 0%, var(--bg-light) 100%);
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-label {
+    display: inline-block;
+    background-color: var(--gold-light);
+    color: var(--navy);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtext {
+    font-size: 1.125rem;
+    color: var(--text-body);
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.trust-badges {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--navy);
+}
+
+.badge i.fa-star { color: var(--gold); }
+.badge i.fa-users { color: var(--navy-light); }
+.badge i.fa-certificate { color: var(--success); }
+
+.hero-image-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.hero-image-container {
+    position: relative;
+    border-radius: 12px;
+}
+
+.hero-img {
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(26,43,74,0.1);
+    border: 4px solid var(--white);
+    aspect-ratio: 4/5;
+    object-fit: cover;
+}
+
+.floating-card {
+    position: absolute;
+    background-color: var(--white);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(26,43,74,0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 0.875rem;
+}
+
+.floating-card i {
+    color: var(--gold);
+    font-size: 1.25rem;
+}
+
+.card-1 {
+    bottom: 2rem;
+    left: -2rem;
+}
+
+.card-2 {
+    top: 2rem;
+    right: -2rem;
+}
+
+/* ==========================================================================
+   Trust Strip (Marquee)
+   ========================================================================== */
+.trust-strip {
+    background-color: var(--navy);
+    color: var(--white);
+    padding: 1rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.marquee {
+    display: inline-flex;
+    align-items: center;
+    gap: 2rem;
+    animation: marquee 30s linear infinite;
+}
+
+.marquee span {
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.marquee .separator {
+    color: var(--gold);
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   About Section
+   ========================================================================== */
+.about-grid {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.story-paragraph {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-body);
+    margin-bottom: 2rem;
+}
+
+.credentials-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.credential-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.credential-item i {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-top: 0.25rem;
+}
+
+.credential-item strong {
+    display: block;
+    color: var(--navy);
+    font-family: var(--font-subheading);
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+.credential-item span {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.about-image {
+    flex: 1;
+    position: relative;
+    padding: 2rem;
+}
+
+.doctor-photo {
+    position: relative;
+    z-index: 2;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.gold-frame {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 4rem;
+    left: 4rem;
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   Services Section
+   ========================================================================== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(26,43,74,0.08);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--bg-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+.service-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.service-link:hover {
+    color: var(--navy);
+}
+
+/* ==========================================================================
+   Why Choose Section
+   ========================================================================== */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.feature-item h3 {
+    font-family: var(--font-subheading);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   Patient Journey Section
+   ========================================================================== */
+.journey-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+}
+
+.journey-step {
+    text-align: center;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.journey-step::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    right: -50%;
+    width: 100%;
+    height: 2px;
+    background: dashed 2px var(--border);
+    z-index: 1;
+}
+
+.journey-step:last-child::after {
+    display: none;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background-color: var(--navy);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 0 8px var(--bg-light);
+}
+
+/* ==========================================================================
+   Reviews Section
+   ========================================================================== */
+.reviews-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.rating-block .stars {
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.review-card {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.review-card .stars {
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.review-text {
+    font-style: italic;
+    font-size: 1.125rem;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+}
+
+.reviewer {
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   Contact Section
+   ========================================================================== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.contact-info h2 {
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-top: 0.25rem;
+}
+
+.info-item strong {
+    display: block;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* ==========================================================================
+   CTA Banner
+   ========================================================================== */
+.cta-banner {
+    background-color: var(--navy);
+    color: var(--white);
+    padding: 5rem 0;
+    background-image: linear-gradient(rgba(26,43,74,0.9), rgba(26,43,74,0.9)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.cta-banner h2 {
+    color: var(--white);
+    margin-bottom: 2rem;
+}
+
+.cta-actions {
+    margin-bottom: 1.5rem;
+}
+
+.cta-footer {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+    background-color: var(--text-dark);
+    color: var(--white);
+    padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.footer-logo {
+    height: 60px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-brand .tagline {
+    color: var(--text-muted);
+}
+
+.footer h4 {
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.footer-contact p {
+    display: flex;
+    gap: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.footer-contact i {
+    color: var(--gold);
+    margin-top: 0.25rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   WhatsApp Floating Button
+   ========================================================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+    z-index: 9999;
+    font-size: 2rem;
+    animation: pulse-green 2s infinite;
+}
+
+.whatsapp-float:hover {
+    color: white;
+}
+
+@keyframes pulse-green {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
+    50% { box-shadow: 0 4px 40px rgba(37,211,102,0.8); }
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero-container { gap: 2rem; }
+    h1 { font-size: 3rem; }
+    .floating-card { padding: 0.75rem 1rem; }
+}
+
+@media (max-width: 768px) {
+    .nav-links, .nav-actions { display: none; }
+    .mobile-menu-btn { display: block; }
+    
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-subtext {
+        margin: 0 auto 2rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .trust-badges {
+        justify-content: center;
+    }
+    
+    .card-1 { left: 0; bottom: 1rem; }
+    .card-2 { right: 0; top: 1rem; }
+    
+    .about-grid, .contact-grid {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid { grid-template-columns: 1fr; }
+    .journey-timeline {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .journey-step::after {
+        width: 2px;
+        height: 100%;
+        top: 60px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+    
+    .reviews-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    .hero-buttons { flex-direction: column; }
+    .services-grid { grid-template-columns: 1fr; }
+    .credentials-block { grid-template-columns: 1fr; }
+    .contact-buttons { flex-direction: column; }
+}
